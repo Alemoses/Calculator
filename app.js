@@ -49,6 +49,37 @@ function operate(numA, operator, numB) {
   return result;
 }
 
+//clears display upon clicking the clear button
+function clearDisplay() {
+  clearBtn.addEventListener('click', () => {
+    display.value = display.ariaPlaceholder;
+    firstNum = '';
+    secondNum = '';
+    operator = '';
+    result = 0;
+    clickCount = 0;
+    decimalClick = 0;
+    decimalBtn.disabled = false;
+    console.clear();
+  })
+}
+
+//deletes the last entered digit or operator from the display
+function deleteDigit() {
+  deleteBtn.addEventListener('click', () => {
+    display.value = display.value.toString().slice(0, -1);
+    if (operator === '') { // Read first number if no operator set yet
+      firstNum = firstNum.slice(0, -1);
+      console.log(firstNum)
+    } else if (operator === true && secondNum === false) {
+      operator = operator.slice(0, -1);
+    } else { // Read second number
+      secondNum = secondNum.slice(0, -1);
+      console.log(secondNum)
+    }
+  })
+}
+
 //renders numbers to the display when corresponding numbered button is clicked and saves them to variables when an operator button is clicked
 function displayNums() {
   numberBtn.forEach(number => {
@@ -100,4 +131,3 @@ function displayDecimal() {
     }
   });
 }
-
