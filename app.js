@@ -2,6 +2,8 @@ let firstNum = '';
 let secondNum = '';
 let operator = '';
 let result = 0;
+let clickCount = 0;
+let decimalClick = 0;
 
 const clearBtn = document.querySelector('#clear');
 const deleteBtn = document.querySelector('#delete');
@@ -51,6 +53,7 @@ function operate(numA, operator, numB) {
 function displayNums() {
   numberBtn.forEach(number => {
     number.addEventListener("click", e => {
+      operatorBtn.forEach(btn => btn.disabled = false);
       display.value += e.target.value;
       if (operator === '') {
         firstNum += e.target.value;
@@ -67,12 +70,34 @@ function displayNums() {
 function displayOperators() {
   operatorBtn.forEach(op => {
     op.addEventListener("click", e => {
+      clickCount++;
       display.value += e.target.value;
       operator = e.target.value;
       secondNum = '';
+      decimalBtn.disabled = false;
       console.log(operator)
+      if (clickCount >= 1) {
+        operatorBtn.forEach(btn => btn.disabled = true)
+      }
+      if (clickCount >= 2) {
+        firstNum = result;
+      }
     });
   });
 }
 
+//renders decimal button on display element and add decimal point to either firstNum or secondNum depending on when decimalBtn is clicked
+function displayDecimal() {
+  decimalBtn.addEventListener('click', e => {
+    display.value += e.target.value;
+    decimalClick++;
+    if (decimalClick === 1) {
+      firstNum += e.target.value;
+      decimalBtn.disabled = true;
+    } else {
+      secondNum += e.target.value;
+      decimalBtn.disabled = true;
+    }
+  });
+}
 
