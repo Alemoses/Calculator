@@ -92,6 +92,11 @@ function displayNums() {
       } else {
         secondNum += e.target.value;
         console.log(secondNum)
+        if (decimalClick >= 1 && secondNum) {
+          operate(parseFloat(firstNum), operator, parseFloat(secondNum));
+        } else {
+          operate(parseInt(firstNum), operator, parseInt(secondNum));
+        }
       }
     });
   });
@@ -131,3 +136,29 @@ function displayDecimal() {
     }
   });
 }
+
+//renders result to the display element by using the clicking of the equals button to call operate() which then calls the subsequent math functions to calculate the result
+function calculate() {
+  equalsBtn.addEventListener('click', () => {
+    display.value = result;
+    if (decimalClick < 1 && secondNum) {
+      display.value = result;
+    } else if (decimalClick >= 1) {
+      display.value = result.toFixed(2);
+    }
+  });
+
+}
+
+
+//The function that runs the app
+function calculator() {
+  displayNums();
+  displayOperators();
+  displayDecimal();
+  clearDisplay();
+  deleteDigit();
+  calculate();
+};
+
+calculator();
