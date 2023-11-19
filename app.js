@@ -141,6 +141,7 @@ function displayDecimal() {
 function calculate() {
   equalsBtn.addEventListener('click', () => {
     display.value = result;
+    decimalBtn.disabled = true;
     if (decimalClick < 1 && secondNum) {
       display.value = result;
     } else if (decimalClick >= 1) {
