@@ -1,0 +1,159 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator {
+  background-color: rgb(0, 0, 0);
+  width: 300px;
+  height: 500px;
+  display: grid;
+  grid-template-areas: 'display-container' 'btn-container';
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.display-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;  
+  grid-row: 1;
+  grid-column: 1;
+}
+
+#display {
+  border: none;
+  text-align: end;
+  font-size: 50px;
+  color: white;
+  background-color: rgba(0, 255, 0, 0.39);
+  margin: 0;
+  font-family: 'Silkscreen', sans-serif;
+  width: 296px;
+  height: max-content;
+  border-radius: 5px;
+
+}
+
+.btn-container {
+  display: grid;
+  grid-row: 2;
+  grid-column: 1;
+  justify-content: space-evenly;
+  width: 300px;
+}
+
+input {
+  height: 50px;
+  border-radius: 5px;
+  background-color: black;
+  color: whitesmoke;
+}
+
+.number {
+  width: 50px;
+}
+
+.operator {
+  width: 50px;
+  background-color: rgb(76, 76, 76);
+}
+
+#clear {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+}
+
+#delete {
+  grid-row: 1;
+  grid-column: 3;
+  width: 50px;
+}
+
+#add {
+  grid-row: 1;
+  grid-column: 4;
+}
+
+#subtract {
+  grid-row: 2;
+  grid-column: 4;
+}
+
+#multiply{
+  grid-row: 3;
+  grid-column: 4;
+
+}
+
+#divide {
+  grid-row: 4;
+  grid-column: 4;
+}
+
+#one {
+  grid-row: 2;
+  grid-column: 1;  
+}
+
+#two {
+  grid-row: 2;
+  grid-column: 2;  
+}
+
+#three {
+  grid-row: 2;
+  grid-column: 3;  
+}
+
+#four {
+  grid-row: 3;
+  grid-column: 1;  
+}
+
+#five {
+  grid-row: 3;
+  grid-column: 2;  
+}
+
+#six {
+  grid-row: 3;
+  grid-column: 3;  
+}
+
+#seven {
+  grid-row: 4;
+  grid-column: 1;  
+}
+
+#eight {
+  grid-row: 4;
+  grid-column: 2;  
+}
+
+#nine {
+  grid-row: 4;
+  grid-column: 3;  
+}
+
+#zero {
+  grid-row: 5;
+  grid-column: 2;  
+}
+
+#equals {
+  grid-row: 5;
+  grid-column: 3 / span 2;  
+}
+
+#decimal {
+  grid-row: 5;
+  grid-column: 1; 
+  width: 50px; 
+}
+
+
+
+
